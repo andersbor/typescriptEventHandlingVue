@@ -1,12 +1,22 @@
-interface Person {
-    firstName: string;
-    lastName: string;
-}
-
-function greeter(person: Person): string {
-    return "Hello, " + person.firstName + " " + person.lastName;
-}
-let user: Person = { firstName: "John", lastName: "Doe" };
-
-let element: HTMLDivElement = <HTMLDivElement> document.getElementById("content");
-element.innerHTML = greeter(user);
+new Vue({
+    el: "#app",
+    data: {
+        message: ""
+    },
+    methods: {
+        clicked(ev: MouseEvent) {
+            this.message = "Button clicked x=" + ev.x + " y=" + ev.y
+        },
+        keyPressed(ev: KeyboardEvent) { this.message = "key pressed " + ev.key },
+        keyDown(ev: KeyboardEvent) { console.log("Key down: " + ev.key) },
+        keyUp(ev: KeyboardEvent) { console.log("Key up: " + ev.key) },
+        focusGained() { console.log("focus") },
+        focusLost() { console.log("focus lost") },
+        mouseOver(ev: MouseEvent) { 
+            console.log("mouse over")
+        },
+        mouseOut(ev: MouseEvent) {
+            console.log("mouse out")
+        }
+    }
+}) 
